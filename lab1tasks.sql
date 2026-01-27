@@ -26,5 +26,38 @@ VALUES('001','Himal','Adhikari','M','2007-06-17','Engineer','Software Engineerin
 ,('002','Ram','Thapa','M','2009-06-17','Engineer','Software Engineering','0007','2022-04-05','5250000','Lokanthali-Bhaktapur');
 
 
-select*from employee;
 
+
+#4. Update the gender of an employee whose EmployeeID is 002.
+
+update employee
+SET Gender ="F"
+where EmpID = 002;
+
+select * from employee;
+
+#5. Display the first name, current date, date of birth, and age
+# of the employees who are older than 30 years.
+
+select FirstName, curdate() as CurrentDate,
+DateofBirth,
+timestampdiff(YEAR, DateOfBirth, CURDATE()) as Age from employee 
+where
+timestampdiff(YEAR, DateofBirth, CURDATE())>25;
+
+#6. Write a query to find the oldest employye.
+
+select * from employee 
+where DateOfBirth=(select MIN(DateOfBirth)
+from employee);
+
+#7. youngest employee
+
+select * from employee 
+where DateOfBirth=(select MAX(DateOfBirth)
+from employee); 
+
+#8. Display the maximum salary department-wise.
+
+select DepartmentName, Max(EmpSalary) as MaxEmpSalary 
+from employee Group by DepartmentName;
