@@ -23,7 +23,8 @@ EmpAddress varchar(200)
 insert into employee(
 EmpId,FirstName,LastName,Gender,DateOfBirth,Designation,DepartmentName,ManagerID,JoinedDate,EmpSalary,EmpAddress)
 VALUES('001','Himal','Adhikari','M','2007-06-17','Engineer','Software Engineering','0005','2022-04-01','500000','Sanothimi-Bhaktapur')
-,('002','Ram','Thapa','M','2009-06-17','Engineer','Software Engineering','0007','2022-04-05','5250000','Lokanthali-Bhaktapur');
+,('002','Ram','Thapa','M','2009-06-17','Engineer','Software Engineering','0007','2022-04-05','5250000','Lokanthali-Bhaktapur'),
+('003','Sita','Shrestha','M','2006-06-17','Manager','Managers','2022-02-05','6000000','Purano-Thimi-Bhaktapur');
 
 
 
@@ -61,3 +62,13 @@ from employee);
 
 select DepartmentName, Max(EmpSalary) as MaxEmpSalary 
 from employee Group by DepartmentName;
+
+#9. List the employees who act as managers.
+select FirstName from employee where 
+EmpID in (Select ManagerID from employee);   
+
+#10. Display the details of the most recently joined 
+#employee.
+
+select * from employee where
+JoinedDate=(select Max(JoinedDate) from employee);
