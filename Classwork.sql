@@ -127,6 +127,6 @@ where year(BDATE between 1950 and 1999);
 #Question 6 Employee Name with Department Name
 
 select e.FName, d.Dname
-FROM Employee e, Department D; 
+FROM Employee e, Department D;
 
 
