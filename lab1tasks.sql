@@ -89,6 +89,5 @@ where FirstName like 'r%';
 select * from employee
 where LastName like '%a';
 select * from employee where FirstName Like 's%n';
-
 select * from employee where EmpAddress like 'l%';
 

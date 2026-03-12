@@ -39,4 +39,6 @@ alter table department modify LOC Char(20);
 #Drop the table department
 drop table department;
 
-select * from departments; 
+select * from departments
+
+
