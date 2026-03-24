@@ -1,0 +1,318 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\LOQ> mongosh
+Current Mongosh Log ID: 69c1eccef5f4b764c6114029
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.1
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+PS C:\Users\LOQ> mongosh "mongodb+srv://cluster0.5uknd3r.mongodb.net/" --apiVersion 1 --username Salin
+Enter password: *******
+Current Mongosh Log ID: 69c1ecdff1ab4433c8114029
+Connecting to:          mongodb+srv://<credentials>@cluster0.5uknd3r.mongodb.net/?appName=mongosh+2.8.1
+Using MongoDB:          8.0.20 (API Version 1)
+Using Mongosh:          2.8.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+Atlas atlas-q7j71z-shard-0 [primary] test> show dbs
+Test           72.00 KiB
+sample_mflix  174.18 MiB
+admin         352.00 KiB
+local          10.81 GiB
+Atlas atlas-q7j71z-shard-0 [primary] test> use test
+already on db test
+Atlas atlas-q7j71z-shard-0 [primary] test> db.students.find().pretty()
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test> db.students.find().pretty()
+
+Atlas atlas-q7j71z-shard-0 [primary] test> db.students.insertMany([{name: "Ram", age: 19, grade: "A"},{name: "Sita", age: 21, grade: "B"},{name:"Shyam",age: 18, grade: "A"}])
+Uncaught:
+MongoBulkWriteError: db already exists with different case already have: [Test] trying to create [test]
+Result: BulkWriteResult {
+  insertedCount: 0,
+  matchedCount: 0,
+  modifiedCount: 0,
+  deletedCount: 0,
+  upsertedCount: 0,
+  upsertedIds: {},
+  insertedIds: {}
+}
+Write Errors: [
+  WriteError {
+    err: {
+      index: 0,
+      code: 13297,
+      errmsg: 'db already exists with different case already have: [Test] trying to create [test]',
+      errInfo: undefined,
+      op: {
+        name: 'Ram',
+        age: 19,
+        grade: 'A',
+        _id: ObjectId('69c1f151f1ab4433c811402a')
+      }
+    }
+  }
+]
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test> db.students.insertMany([{name: "Ram"}, {age: 19}, {grade: "A"},{name: "Sita"}, {age: 21}, {grade: "B"},{name:"Shyam"},{age: 18}, {grade: "A"}])
+#Uncaught:
+MongoBulkWriteError: db already exists with different case already have: [Test] trying to create [test]
+Result: BulkWriteResult {
+  insertedCount: 0,
+  matchedCount: 0,
+  modifiedCount: 0,
+  deletedCount: 0,
+  upsertedCount: 0,
+  upsertedIds: {},
+  insertedIds: {}
+}
+Write Errors: [
+  WriteError {
+    err: {
+      index: 0,
+      code: 13297,
+      errmsg: 'db already exists with different case already have: [Test] trying to create [test]',
+      errInfo: undefined,
+      op: { name: 'Ram', _id: ObjectId('69c1f306f1ab4433c811402d') }
+    }
+  }
+]
+Atlas atlas-q7j71z-shard-0 [primary] test>
+
+Atlas atlas-q7j71z-shard-0 [primary] test> show dbs
+Test           72.00 KiB
+sample_mflix  174.18 MiB
+admin         352.00 KiB
+local          10.81 GiB
+Atlas atlas-q7j71z-shard-0 [primary] test> use Test
+switched to db Test
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.insertMany([{name: "Ram"}, {age: 19}, {grade: "A"},{name: "Sita"}, {age: 21}, {grade: "B"},{name:"Shyam"},{age: 18}, {grade: "A"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69c1f3dff1ab4433c8114036'),
+    '1': ObjectId('69c1f3dff1ab4433c8114037'),
+    '2': ObjectId('69c1f3dff1ab4433c8114038'),
+    '3': ObjectId('69c1f3dff1ab4433c8114039'),
+    '4': ObjectId('69c1f3dff1ab4433c811403a'),
+    '5': ObjectId('69c1f3dff1ab4433c811403b'),
+    '6': ObjectId('69c1f3dff1ab4433c811403c'),
+    '7': ObjectId('69c1f3dff1ab4433c811403d'),
+    '8': ObjectId('69c1f3dff1ab4433c811403e')
+  }
+}
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find().pretty()
+[
+  { _id: ObjectId('69c1f3dff1ab4433c8114036'), name: 'Ram' },
+  { _id: ObjectId('69c1f3dff1ab4433c8114037'), age: 19 },
+  { _id: ObjectId('69c1f3dff1ab4433c8114038'), grade: 'A' },
+  { _id: ObjectId('69c1f3dff1ab4433c8114039'), name: 'Sita' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403a'), age: 21 },
+  { _id: ObjectId('69c1f3dff1ab4433c811403b'), grade: 'B' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403c'), name: 'Shyam' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403d'), age: 18 },
+  { _id: ObjectId('69c1f3dff1ab4433c811403e'), grade: 'A' }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find({age: {$gt: 16}})
+[
+  { _id: ObjectId('69c1f3dff1ab4433c8114037'), age: 19 },
+  { _id: ObjectId('69c1f3dff1ab4433c811403a'), age: 21 },
+  { _id: ObjectId('69c1f3dff1ab4433c811403d'), age: 18 }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find({grade: "A"}).pretty()
+[
+  { _id: ObjectId('69c1f3dff1ab4433c8114038'), grade: 'A' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403e'), grade: 'A' }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find({name: "Ram"}).pretty()
+[ { _id: ObjectId('69c1f3dff1ab4433c8114036'), name: 'Ram' } ]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find({name: "Ram"}).pretty()
+[ { _id: ObjectId('69c1f3dff1ab4433c8114036'), name: 'Ram' } ]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find({name: "Shyam"}).pretty()
+[ { _id: ObjectId('69c1f3dff1ab4433c811403c'), name: 'Shyam' } ]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateOne( name: "Hari")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.students.updateOne( name: "Hari")
+    |                            ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateOne( name: "Sita"), {$set: {grade: "C"}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.students.updateOne( name: "Sita"), {$set: {grade: "C"}})
+    |                            ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateOne( {name: "Sita"}), {$set: {grade: "C"}})
+Uncaught:
+SyntaxError: Missing semicolon. (1:60)
+
+> 1 | db.students.updateOne( {name: "Sita"}), {$set: {grade: "C"}})
+    |                                                             ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateOne( {name: "Sita"}), {$set: {grade: "C"}});
+Uncaught:
+SyntaxError: Missing semicolon. (1:60)
+
+> 1 | db.students.updateOne( {name: "Sita"}), {$set: {grade: "C"}});
+    |                                                             ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateOne( {name: "Sita"}), {$set: {grade: "C"}};)
+Uncaught:
+SyntaxError: Unexpected token (1:61)
+
+> 1 | db.students.updateOne( {name: "Sita"}), {$set: {grade: "C"}};)
+    |                                                              ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateOne( {name: "Sita"}, {$set: {grade: "C"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateMany({age: {$lt: 20}}, {$set: {grade: "C"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.deleteOne({name: "Ram"})
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.deleteMany({grade: "C"})
+{ acknowledged: true, deletedCount: 3 }
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.countDocuments({grade: "C"})
+0
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.countDocuments({grade: "A"})
+2
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.countDocuments({grade: "B"})
+1
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find().sort().pretty()
+[
+  { _id: ObjectId('69c1f3dff1ab4433c8114038'), grade: 'A' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403a'), age: 21 },
+  { _id: ObjectId('69c1f3dff1ab4433c811403b'), grade: 'B' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403c'), name: 'Shyam' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403e'), grade: 'A' }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find().sort({age: 1}).pretty()
+[
+  { _id: ObjectId('69c1f3dff1ab4433c8114038'), grade: 'A' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403b'), grade: 'B' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403c'), name: 'Shyam' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403e'), grade: 'A' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403a'), age: 21 }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find().sort({age: -1}).pretty()
+[
+  { _id: ObjectId('69c1f3dff1ab4433c811403a'), age: 21 },
+  { _id: ObjectId('69c1f3dff1ab4433c8114038'), grade: 'A' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403b'), grade: 'B' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403c'), name: 'Shyam' },
+  { _id: ObjectId('69c1f3dff1ab4433c811403e'), grade: 'A' }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateMany({}.{$set: {city: "Kathmandu"}})
+Uncaught:
+SyntaxError: Unexpected token (1:26)
+
+> 1 | db.students.updateMany({}.{$set: {city: "Kathmandu"}})
+    |                           ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.updateMany({},{$set: {city: "Kathmandu"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.find().pretty()
+[
+  {
+    _id: ObjectId('69c1f3dff1ab4433c8114038'),
+    grade: 'A',
+    city: 'Kathmandu'
+  },
+  {
+    _id: ObjectId('69c1f3dff1ab4433c811403a'),
+    age: 21,
+    city: 'Kathmandu'
+  },
+  {
+    _id: ObjectId('69c1f3dff1ab4433c811403b'),
+    grade: 'B',
+    city: 'Kathmandu'
+  },
+  {
+    _id: ObjectId('69c1f3dff1ab4433c811403c'),
+    name: 'Shyam',
+    city: 'Kathmandu'
+  },
+  {
+    _id: ObjectId('69c1f3dff1ab4433c811403e'),
+    grade: 'A',
+    city: 'Kathmandu'
+  }
+]
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.deleteMany({age:{$gt: 21}})
+{ acknowledged: true, deletedCount: 0 }
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test>
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> git innit
+Uncaught:
+SyntaxError: Missing semicolon. (1:3)
+
+> 1 | git innit
+    |    ^
+  2 |
+
+Atlas atlas-q7j71z-shard-0 [primary] Test> db.students.deleteMany({age:{$gte: 18, $lte: 21}})
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-q7j71z-shard-0 [primary] Test>
